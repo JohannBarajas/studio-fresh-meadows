@@ -200,9 +200,7 @@
     .share-btn { padding: 0.55rem; }
     main { padding: 1.25rem 1rem 3rem; }
     footer.pagefoot { padding: 0 1rem 2.5rem; }
-    .gallery { grid-template-columns: 1fr; }
     .gallery-main { aspect-ratio: 3 / 4; }
-    .thumbs { flex-direction: row; overflow-x: auto; overflow-y: visible; }
     .thumb { width: 60px; height: 60px; }
     .info-card { padding: 1.1rem; }
     .price .amount { font-size: 2rem; }
@@ -217,10 +215,6 @@
     background: var(--surface-sunken);
     border-radius: 12px;
     padding: 6px;
-    display: grid;
-    grid-template-columns: 1fr 92px;
-    gap: 6px;
-    align-items: stretch;
   }
 
   .gallery-main {
@@ -285,13 +279,15 @@
 
   .thumbs {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 4px;
-    overflow-y: auto;
+    overflow-x: auto;
+    margin-top: 6px;
   }
 
   .thumb {
-    width: 100%;
+    width: 72px;
+    height: 72px;
     aspect-ratio: 1;
     flex: none;
     border: 2px solid transparent;
