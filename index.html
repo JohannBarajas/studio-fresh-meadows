@@ -147,7 +147,7 @@
   .share-btn:hover { border-color: var(--ink-faint); color: var(--ink); }
 
   main {
-    max-width: 1320px;
+    max-width: 1580px;
     margin: 0 auto;
     padding: 2rem 1.75rem 4rem;
   }
@@ -172,15 +172,20 @@
 
   .layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.85fr) minmax(300px, 0.85fr);
+    grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
     grid-template-areas:
-      "gallery info"
+      "gallery gallery"
       "desc    info";
     gap: 2rem;
     align-items: start;
   }
 
-  .gallery { grid-area: gallery; }
+  .gallery {
+    grid-area: gallery;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+  }
   .info-card { grid-area: info; }
   .description { grid-area: desc; }
 
@@ -641,7 +646,7 @@
 
     <aside class="info-card">
       <div class="price">
-        <span class="amount">$1,300</span>
+        <span class="amount">$1,300 USD</span>
         <span class="period">/ mes</span>
       </div>
 
