@@ -804,7 +804,11 @@
     var btn = this;
     var original = btn.innerHTML;
     if (navigator.share) {
-      navigator.share({ title: "Habitación en Fresh Meadows", text: "Habitación en renta en Fresh Meadows, NY" }).catch(function(){});
+      navigator.share({
+        title: "Studio en Fresh Meadows",
+        text: "Studio en renta en Fresh Meadows, NY",
+        url: window.location.href
+      }).catch(function(){});
     } else if (navigator.clipboard) {
       navigator.clipboard.writeText(window.location.href).then(function () {
         btn.textContent = "Enlace copiado";
