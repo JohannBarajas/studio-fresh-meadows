@@ -133,26 +133,28 @@
   .share-btn:hover { border-color: var(--ink-faint); color: var(--ink); }
 
   main {
-    max-width: 1900px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 2rem 1.75rem 4rem;
   }
 
+  /* Desktop: photos on the left half, details on the right half */
   .layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     grid-template-areas:
-      "gallery gallery"
-      "desc    info";
-    gap: 2rem;
+      "gallery info"
+      "gallery desc";
+    grid-template-rows: auto 1fr;
+    gap: 1.5rem 2.5rem;
     align-items: start;
   }
 
   .gallery {
     grid-area: gallery;
-    max-width: 1880px;
-    margin: 0 auto;
     width: 100%;
+    position: sticky;
+    top: 1.5rem;
   }
   .info-card { grid-area: info; }
   .description { grid-area: desc; }
@@ -171,6 +173,8 @@
   .gallery-main {
     position: relative;
     aspect-ratio: 4 / 5;
+    max-height: calc(100vh - 3rem - 12px);
+    width: 100%;
     background: var(--surface-sunken);
     border-radius: 8px;
     overflow: hidden;
@@ -234,6 +238,7 @@
     flex-direction: column;
     gap: 4px;
     overflow-y: auto;
+    max-height: calc(100vh - 3rem - 12px);
   }
 
   .thumb {
@@ -291,8 +296,6 @@
     border-radius: 12px;
     padding: 1.5rem;
     box-shadow: var(--shadow);
-    position: sticky;
-    top: 1.5rem;
   }
 
   .price {
@@ -544,7 +547,7 @@
   }
 
   footer.pagefoot {
-    max-width: 1900px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 1.75rem 3rem;
     color: var(--ink-faint);
@@ -557,7 +560,9 @@
       grid-template-areas: "gallery" "info" "desc";
       gap: 1.5rem;
     }
-    .info-card { position: static; }
+    .gallery { position: static; }
+    .gallery-main { max-height: 70vh; aspect-ratio: 4 / 5; margin: 0 auto; }
+    .thumbs { max-height: 70vh; }
   }
 
   @media (max-width: 640px) {
@@ -567,7 +572,8 @@
     main { padding: 1.25rem 1rem 3rem; }
     footer.pagefoot { padding: 0 1rem 2.5rem; }
     .gallery { grid-template-columns: 1fr; }
-    .gallery-main { height: 54vh; aspect-ratio: unset; }
+    .gallery-main { height: 54vh; aspect-ratio: unset; max-height: none; }
+    .thumbs { max-height: none; }
     .thumbs { flex-direction: row; overflow-x: auto; overflow-y: visible; }
     .thumb { width: 60px; height: 60px; }
     .info-card { padding: 1.1rem; }
